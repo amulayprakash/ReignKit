@@ -26,117 +26,8 @@ const passText = [
 ];
 const media = [o1, o2, o3];
 
-const RoyalityPass = ({ type, royalPassContract, account }) => {
-  const val = Number(type);
+const RoyalityPass = ({ account }) => {
   const [disable, setDisable] = useState(false);
-  const [basicFee, setBasicFee] = useState(0);
-  const [eliteFee, setEliteFee] = useState(0);
-  const [proFee, setProFee] = useState(0);
-  const [whichPass, setWhichPass] = useState(null);
-  // 0 - basic Pass
-  // 1 - elite Pass
-  // 2 - pro Pass
-  // 3 - no Pass
-
-  useEffect(() => {
-    setDisable(true);
-
-    const run = async () => {
-      let one = await royalPassContract.BasicFee();
-      let two = await royalPassContract.EliteFee();
-      let three = await royalPassContract.ProFee();
-
-      let x = await royalPassContract.balanceOf(account, 0);
-      let y = await royalPassContract.balanceOf(account, 1);
-      let z = await royalPassContract.balanceOf(account, 2);
-
-      x = parseInt(x);
-      y = parseInt(y);
-      z = parseInt(z);
-
-      if (x > 0) {
-        setWhichPass(0);
-      } else if (y > 0) {
-        setWhichPass(1);
-      } else if (z > 0) {
-        setWhichPass(2);
-      } else {
-        setWhichPass(3);
-      }
-
-      one = ethers.utils.formatEther(one);
-      two = ethers.utils.formatEther(two);
-      three = ethers.utils.formatEther(three);
-
-      passText[0].price = one;
-      setBasicFee(() => one);
-      passText[1].price = two;
-      setEliteFee(() => two);
-      passText[2].price = three;
-      setProFee(() => three);
-    };
-    try {
-      if (account && royalPassContract) {
-        run();
-      }
-    } catch (err) {
-      console.log(err);
-    }
-    setDisable(false);
-    return () => {
-      setBasicFee(0);
-      setDisable(false);
-      setEliteFee(0);
-      setProFee(0);
-    };
-  }, [royalPassContract]);
-
-  const mintPass = async () => {
-    setDisable(true);
-    try {
-      // basic pass mint
-      if (type === 1) {
-        notifyInfo("Your Transaction Has Started");
-        const transaction = await royalPassContract.buyBasic(account, {
-          value: ethers.utils.parseEther(basicFee),
-        });
-        const transactionReceipt = await transaction.wait();
-        notifySuccess("Your NFT is Minted successfully");
-        console.log(transactionReceipt);
-      }
-
-      // pro pass mint
-      if (type === 2) {
-        notifyInfo("Your Transaction Has Started");
-        let send;
-        if (whichPass === 0) {
-          send = 0;
-        } else if (whichPass === 2) {
-          send = 1;
-        } else if (whichPass === 3) {
-          send = 2;
-        }
-        const transaction = await royalPassContract.buyPro(account, send, {
-          value: ethers.utils.parseEther(proFee),
-        });
-        const transactionReceipt = await transaction.wait();
-        notifySuccess("Your NFT is Minted successfully");
-        console.log(transactionReceipt);
-      }
-
-      // elite pass mint
-      if (type === 3) {
-        notifyInfo("Your Transaction Has Started");
-        const transaction = await royalPassContract.buyElite(account, {
-          value: ethers.utils.parseEther(eliteFee),
-        });
-        const transactionReceipt = await transaction.wait();
-        notifySuccess("Your NFT is Minted successfully");
-        console.log(transactionReceipt);
-      }
-    } catch (err) {}
-    setDisable(false);
-  };
 
   return (
     <div className="bg-01">
@@ -151,16 +42,16 @@ const RoyalityPass = ({ type, royalPassContract, account }) => {
         <div className="Royality-card">
           <video
             className="pass-vid"
-            src={media[val - 1]}
+            src={media[0]}
             autoPlay
             loop
             muted
           ></video>
-          <p className="sub-font">{passText[val - 1].text}</p>
-          <p className="top-font">{passText[val - 1].price}</p>
+          <p className="sub-font">{passText[0].text}</p>
+          <p className="top-font">{passText[0].price}</p>
           <button disabled={disable} className="btn">
             {" "}
-            {`Mint ${passText[val - 1].name} Pass`}{" "}
+            {`Mint ${passText[0].name} Pass`}{" "}
           </button>
         </div>
       </div>
