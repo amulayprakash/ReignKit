@@ -11,7 +11,7 @@ if (network.name === "rinkeby") {
 } else if (network.name === "homestead") {
   passContractAddress = "";
 } else if (network.name === "goerli") {
-  passContractAddress = "0x96B7c3B7E5D80252FE76122824f525E7AA906A17";
+  passContractAddress = "0x52EeC0f4543Edd631378BBd9D22B74c537EaC31E";
 }
 
 const final = {

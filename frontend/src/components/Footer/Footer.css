@@ -1,0 +1,46 @@
+.footer {
+  width: 98%;
+  margin: auto;
+  display: flex;
+  border: 1px solid white;
+  align-items: center;
+  background-color: rgb(22, 34, 62);
+}
+.x {
+  border: 0;
+}
+.f1 {
+  flex-grow: 1;
+}
+.f2 {
+  flex-grow: 1;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  font-family: Montserrat, sans-serif;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  width: 50%;
+}
+.f3 {
+  width: 20%;
+}
+.f3 button {
+  flex-grow: 1;
+  font-size: 20px;
+  padding: 20px;
+  padding: 20px;
+}
+
+@media screen and (max-width: 800px) {
+  .footer {
+    flex-direction: column;
+  }
+  .f2 {
+    width: 100%;
+    border: 1px solid white;
+  }
+  .f3 button {
+    margin: 20px;
+  }
+}

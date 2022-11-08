@@ -168,38 +168,10 @@ const ABI = [
   },
   {
     inputs: [
-      { internalType: "address", name: "account", type: "address" },
-      { internalType: "uint256", name: "id", type: "uint256" },
-      { internalType: "uint256", name: "value", type: "uint256" },
-    ],
-    name: "burn",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
-  {
-    inputs: [{ internalType: "address", name: "_to", type: "address" }],
-    name: "buyBasic",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
       { internalType: "address", name: "_to", type: "address" },
-      { internalType: "uint256", name: "existingPass", type: "uint256" },
+      { internalType: "uint256", name: "_type", type: "uint256" },
     ],
-    name: "buyElite",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
-  },
-  {
-    inputs: [
-      { internalType: "address", name: "_to", type: "address" },
-      { internalType: "uint256", name: "existingPass", type: "uint256" },
-    ],
-    name: "buyPro",
+    name: "buyTokenPass",
     outputs: [],
     stateMutability: "payable",
     type: "function",
@@ -334,5 +306,4 @@ const ABI = [
     type: "function",
   },
 ];
-
 export { ABI };

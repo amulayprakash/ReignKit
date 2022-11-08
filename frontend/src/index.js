@@ -5,12 +5,26 @@ import App from "./App";
 import "react-toastify/dist/ReactToastify.css";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter } from "react-router-dom";
+import { chains } from "@web3modal/ethereum";
+import { Web3Modal } from "@web3modal/react";
+
+const config = {
+  projectId: "6ea112bb251f26bee4cf7a5764cd3c63",
+  theme: "dark",
+  accentColor: "default",
+  ethereum: {
+    appName: "web3Modal",
+    autoConnect: true,
+    chains: [chains.mainnet, chains.polygon, chains.fantom],
+  },
+};
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>
     <React.StrictMode>
       <App />
+      <Web3Modal config={config} />
     </React.StrictMode>
   </BrowserRouter>
 );
