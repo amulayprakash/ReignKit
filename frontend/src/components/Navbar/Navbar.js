@@ -1,21 +1,36 @@
 import React, { useEffect, useState } from "react";
 import logo from "./../../assets/REIGNLABS.png";
-import { useConnectModal, useAccount } from "@web3modal/react";
+import {
+  useConnectModal,
+  useAccount,
+  useSwitchNetwork,
+} from "@web3modal/react";
 import useWindowDimensions from "./../utils/getDimension";
+import { final } from "../../web3Components/config";
 
 import "./Navbar.css";
+
 const Navbar = () => {
   const { account } = useAccount();
   const { open, close } = useConnectModal();
+  const { switchNetwork } = useSwitchNetwork();
   const { width } = useWindowDimensions();
   const [change, setChange] = useState(false);
   const z = useConnectModal();
   console.log(z, account);
 
   useEffect(() => {
-    if (account.isConnected || account.isConnecting || account.isReconnecting)
-      setTimeout(() => open(), 1000);
-  }, []);
+    if (
+      !account.isConnected &&
+      !account.address &&
+      account.isConnected !== undefined
+    ) {
+      if (!account.isConnecting) {
+        open();
+        switchNetwork({ chainId: final.network.chainId });
+      }
+    }
+  }, [account.isConnected, account.isConnecting]);
 
   const getListElement = () => {
     if (width > 800) {

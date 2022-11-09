@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import RoyalityPass from "./components/RoyalityPass/RoyalityPass";
 import { Route, Switch } from "react-router-dom";
 import { useSigner } from "@web3modal/react";
-// import { useConnectModal } from "@web3modal/react";
 import { final } from "./web3Components/config";
 import "./App.css";
 import { ethers } from "ethers";

@@ -4,7 +4,7 @@ import "./index.css";
 import App from "./App";
 import "react-toastify/dist/ReactToastify.css";
 import reportWebVitals from "./reportWebVitals";
-import { BrowserRouter } from "react-router-dom";
+import { HashRouter } from "react-router-dom";
 import { chains } from "@web3modal/ethereum";
 import { Web3Modal } from "@web3modal/react";
 
@@ -21,12 +21,12 @@ const config = {
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <BrowserRouter>
+  <HashRouter>
     <React.StrictMode>
       <App />
       <Web3Modal config={config} />
     </React.StrictMode>
-  </BrowserRouter>
+  </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
