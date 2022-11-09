@@ -140,7 +140,7 @@ const RoyalityPass = ({ passContract }) => {
                   loop
                   muted
                 ></video>
-                <p className="sub-font">{passText[i].text}</p>
+                <p className="sub-font xx">{passText[i].text}</p>
                 <p className="top-font">{passText[i].price} ETH</p>
                 <div className="sale-box">
                   <div>{`${passText[i].name} FOUNDERS PASS`}</div>

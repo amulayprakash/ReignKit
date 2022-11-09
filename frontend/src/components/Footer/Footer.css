@@ -44,3 +44,16 @@
     margin: 20px;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .x img {
+    width: 80vw;
+  }
+  .f3 {
+    width: 90vw;
+    text-align: center;
+  }
+  .f3 button {
+    margin: auto;
+  }
+}
