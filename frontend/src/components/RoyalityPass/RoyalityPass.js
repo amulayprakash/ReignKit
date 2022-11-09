@@ -87,7 +87,9 @@ const RoyalityPass = ({ passContract }) => {
 
       const tx = await passContract.buyTokenPass(account.address, type, option);
       tx.wait();
+
       notifySuccess(`Your ${passText[t].name} was minted successfully`);
+      window.location.assign("https://reignlabs.io/welcome/");
     } catch (err) {
       notifyError("Something went wrong!");
     }
