@@ -1,15 +1,21 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from "./../../assets/REIGNLABS.png";
-import { useAccount } from "@web3modal/react";
-import { useConnectModal } from "@web3modal/react";
+import { useConnectModal, useAccount } from "@web3modal/react";
 import useWindowDimensions from "./../utils/getDimension";
 
 import "./Navbar.css";
 const Navbar = () => {
   const { account } = useAccount();
-  const { open } = useConnectModal();
+  const { open, close } = useConnectModal();
   const { width } = useWindowDimensions();
   const [change, setChange] = useState(false);
+  const z = useConnectModal();
+  console.log(z, account);
+
+  useEffect(() => {
+    if (account.isConnected || account.isConnecting || account.isReconnecting)
+      setTimeout(() => open(), 1000);
+  }, []);
 
   const getListElement = () => {
     if (width > 800) {

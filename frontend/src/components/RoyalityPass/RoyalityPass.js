@@ -5,6 +5,7 @@ import { ToastContainer } from "react-toastify";
 import o1 from "./../../assets/1.mp4";
 import o2 from "./../../assets/2.mp4";
 import o3 from "./../../assets/3.mp4";
+import star from "./../../assets/icon-1.png";
 import banner from "./../../assets/banner.webp";
 
 import Navbar from "../Navbar/Navbar";
@@ -24,16 +25,19 @@ const RoyalityPass = ({ passContract }) => {
       text: "This pass is perfect for someone who is just starting out and needs an NFT Smart Contract done. NFT Generation is not included in this pass.",
       price: 0,
       name: "Basic",
+      sale: 4,
     },
     {
       text: "This is a perfect pass for someone who needs a little of everything. This pass gets your contract done, NFT generation up to 5k, staking & more!",
       price: 0,
       name: "Elite",
+      sale: 2,
     },
     {
       text: "The Pro Pass is perfect for a creator who needs a custom solution. You need it all done and don’t want to worry. We have you covered!",
       price: 0,
       name: "Pro",
+      sale: 0,
     },
   ]);
 
@@ -110,8 +114,10 @@ const RoyalityPass = ({ passContract }) => {
           <div className="t">
             <div></div>
           </div>
+          <p className="join">JOIN R3IGNLABS</p>
           <p className="top-font">R3IGNLABS founders pass!</p>
-          <p className="sub-font">
+          <img className="star" src={star} alt="star icon" />
+          <p style={{ width: "60vw" }} className="sub-font">
             With the Founders Pass, you'll have access to our entire development
             team plus additional exclusive benefits. Please contact us before
             minting a pass. Once you mint a pass, we will show you how to
@@ -133,7 +139,11 @@ const RoyalityPass = ({ passContract }) => {
                   muted
                 ></video>
                 <p className="sub-font">{passText[i].text}</p>
-                <p className="top-font">{passText[i].price}</p>
+                <p className="top-font">{passText[i].price} ETH</p>
+                <div className="sale-box">
+                  <div>{`${passText[i].name} FOUNDERS PASS`}</div>
+                  <div>{`${passText[i].sale}% SALES FEES`}</div>
+                </div>
                 <button
                   onClick={() => {
                     mintPass(i);
