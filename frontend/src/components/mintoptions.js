@@ -1,17 +1,33 @@
 import React from "react";
+// import o1 from "./../assets/1.webm";
+// import o2 from "./../assets/2.webm";
+// import o3 from "./../assets/3.webm";
 
-function MintOptions({ description, title, features, price, src, mintPass }) {
+const media = [
+  "https://reignlabs.io/wp-content/uploads/2022/11/Basic-Pass.mp4",
+  "https://reignlabs.io/wp-content/uploads/2022/11/Elite-Pass.mp4",
+  "https://reignlabs.io/wp-content/uploads/2022/11/Pro-Pass.mp4",
+];
+
+function MintOptions({
+  description,
+  title,
+  features,
+  price,
+  src,
+  mintPass,
+  disable,
+}) {
   return (
-    <div className="border-2 border-solid  w-[380px] min-[1600px]:w-[320px] m-5   flex-grow  bg-[#152C4A]">
+    <div className="x-1 border-2 border-solid  w-[380px] min-[1600px]:w-[320px] m-5   flex-grow  bg-[#152C4A]">
       <video
         height="100px"
         width="400px"
         autoPlay
         muted
         className="object-cover   w-full p-8 "
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+        src={media[src]}
+      ></video>
 
       <div className="description text-center mr-7 text-[#e0e0e0] font-normal text-[16px] ml-7">
         {description}
@@ -43,8 +59,12 @@ function MintOptions({ description, title, features, price, src, mintPass }) {
       <div className="price font-medium text-white text-[67px]  font-beba m-5 text-center">
         {price} ETH
       </div>
-      <div className="text-center m-auto mb-10 mintbtn w-[209px] h-[57px] m-5 flex justify-center items-center font-semibold text-[#9BE5FF] bg-gradient-to-bl to-[#9b3fc9] from-[#27198a]">
-        <div onClick={mintPass} className="tes">
+      <div className="cursor-pointer text-center m-auto mb-10 mintbtn w-[209px] h-[57px] m-5 flex justify-center items-center font-semibold text-[#9BE5FF] bg-gradient-to-bl to-[#9b3fc9] from-[#27198a]">
+        <div
+          aria-disabled={disable}
+          onClick={() => mintPass(src)}
+          className="tes cursor-pointer"
+        >
           {`${title.toUpperCase()}`} ELITE PASS
         </div>
       </div>

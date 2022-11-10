@@ -3,9 +3,6 @@ import "./RoyalityPass.css";
 import { ToastContainer } from "react-toastify";
 import MintOptions from "./../mintoptions";
 
-import o1 from "./../../assets/1.webm";
-import o2 from "./../../assets/2.webm";
-import o3 from "./../../assets/3.webm";
 import star from "./../../assets/icon-1.png";
 import banner from "./../../assets/banner.webp";
 
@@ -15,8 +12,6 @@ import { useAccount } from "@web3modal/react";
 
 import { notifySuccess, notifyInfo, notifyError } from "./../notification";
 import { ethers } from "ethers";
-
-const media = [o1, o2, o3];
 
 const RoyalityPass = ({ passContract }) => {
   const [disable, setDisable] = useState(false);
@@ -123,6 +118,7 @@ const RoyalityPass = ({ passContract }) => {
       window.location.assign("https://reignlabs.io/welcome/");
     } catch (err) {
       notifyError("Something went wrong!");
+      console.log(err);
     }
     setDisable(false);
   };
@@ -163,57 +159,16 @@ const RoyalityPass = ({ passContract }) => {
         <div>
           <img className="banner" src={banner} alt="banner" />
         </div>
-        {/* <div className="cards">
-          {passText.map((curr, i) => {
-            return (
-              <div key={i} className="Royality-card">
-                <video
-                  className="pass-vid"
-                  src={media[i]}
-                  autoPlay
-                  loop
-                  muted
-                ></video>
-                <p className="sub-font xx">{passText[i].text}</p>
-                <div className="sale-box">
-                  <div>{`${passText[i].name} FOUNDERS PASS`}</div>
-                  <div>{`${passText[i].sale}% SALES FEES`}</div>
-                </div>
-                <div className="check">
-                  {passText[i].charac.map((curr, l) => {
-                    return (
-                      <div key={l}>
-                        <label className="cont-8">
-                          <input type="checkbox" />
-                          <span className="checkmark">{` ${curr}`}</span>
-                        </label>
-                      </div>
-                    );
-                  })}
-                </div>
-                <p className="tp">{passText[i].price} ETH</p>
-                <button
-                  onClick={() => {
-                    mintPass(i);
-                  }}
-                  disabled={disable}
-                  className="btn"
-                >
-                  {" "}
-                  {`Mint ${passText[i].name} Pass`}{" "}
-                </button>
-              </div>
-            );
-          })}
-        </div> */}
+
         <div className="w-[100%] min-[1600px]:max-w-[79vw] min-w-0">
           <div className=" flex flex-wrap mt-28">
             {passText.map((curr, i) => {
               return (
                 <div key={i}>
                   <MintOptions
+                    disable={disable}
                     mintPass={mintPass}
-                    src={media[i]}
+                    src={i}
                     description={curr.text}
                     title={curr.name}
                     features={curr.charac}

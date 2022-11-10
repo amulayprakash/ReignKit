@@ -95,7 +95,8 @@
 
 .banner {
   width: 100%;
-  margin: 5vh 0 5vh 0;
+  margin: 2vh 0 2vh 0;
+  padding: 20px;
 }
 
 .questions {
@@ -225,12 +226,15 @@
   }
 
   .star {
-    transform: translate(20vw, -130px);
+    transform: translate(257px, -117px);
     width: 40px;
   }
   .sale-box {
     flex-direction: column;
     font-size: 5vw;
     line-height: 30px;
+  }
+  .x-1 {
+    width: auto;
   }
 }

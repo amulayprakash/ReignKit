@@ -125,5 +125,8 @@
   padding: 32px 0 32px 0;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 500px) {
+  .container {
+    width: auto;
+  }
 }
