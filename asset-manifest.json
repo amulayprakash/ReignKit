@@ -1,30 +1,27 @@
 {
   "files": {
-    "main.css": "/ReignKit/static/css/main.99371b83.css",
-    "main.js": "/ReignKit/static/js/main.395204f3.js",
+    "main.css": "/ReignKit/static/css/main.e88b9081.css",
+    "main.js": "/ReignKit/static/js/main.012fc279.js",
     "static/js/187.85ec06f5.chunk.js": "/ReignKit/static/js/187.85ec06f5.chunk.js",
     "static/js/942.0a3aa49b.chunk.js": "/ReignKit/static/js/942.0a3aa49b.chunk.js",
     "static/js/563.3952217f.chunk.js": "/ReignKit/static/js/563.3952217f.chunk.js",
     "static/js/787.cda612ba.chunk.js": "/ReignKit/static/js/787.cda612ba.chunk.js",
-    "static/js/419.19a5df37.chunk.js": "/ReignKit/static/js/419.19a5df37.chunk.js",
+    "static/js/419.c6c57d7a.chunk.js": "/ReignKit/static/js/419.c6c57d7a.chunk.js",
     "static/js/163.1cbe0099.chunk.js": "/ReignKit/static/js/163.1cbe0099.chunk.js",
-    "static/media/3.webm": "/ReignKit/static/media/3.3aace800c5de61f70899.webm",
-    "static/media/2.webm": "/ReignKit/static/media/2.b1ada119cc53ef82abe6.webm",
-    "static/media/1.webm": "/ReignKit/static/media/1.c743191761c885ee2eec.webm",
     "static/media/banner.webp": "/ReignKit/static/media/banner.f050d260eb19b9bc6c24.webp",
     "static/media/photo-4.jpg": "/ReignKit/static/media/photo-4.759fc597046463bf16f5.jpg",
     "static/media/REIGNLABS.png": "/ReignKit/static/media/REIGNLABS.d07da76009a67e5e0c7e.png",
     "static/media/icon-1.png": "/ReignKit/static/media/icon-1.d59cd4005d00f1ef9407.png",
     "index.html": "/ReignKit/index.html",
-    "main.99371b83.css.map": "/ReignKit/static/css/main.99371b83.css.map",
-    "main.395204f3.js.map": "/ReignKit/static/js/main.395204f3.js.map",
+    "main.e88b9081.css.map": "/ReignKit/static/css/main.e88b9081.css.map",
+    "main.012fc279.js.map": "/ReignKit/static/js/main.012fc279.js.map",
     "187.85ec06f5.chunk.js.map": "/ReignKit/static/js/187.85ec06f5.chunk.js.map",
     "787.cda612ba.chunk.js.map": "/ReignKit/static/js/787.cda612ba.chunk.js.map",
-    "419.19a5df37.chunk.js.map": "/ReignKit/static/js/419.19a5df37.chunk.js.map",
+    "419.c6c57d7a.chunk.js.map": "/ReignKit/static/js/419.c6c57d7a.chunk.js.map",
     "163.1cbe0099.chunk.js.map": "/ReignKit/static/js/163.1cbe0099.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99371b83.css",
-    "static/js/main.395204f3.js"
+    "static/css/main.e88b9081.css",
+    "static/js/main.012fc279.js"
   ]
 }
