@@ -37,7 +37,9 @@ const Navbar = () => {
       return (
         <div className="nav2">
           <a href="https://reignlabs.io/">Home</a>
-          <a href="https://reignlabs.io/founder/">Founders Pass</a>
+          <a className="sel-a" href="https://reignlabs.io/founder/">
+            Founders Pass
+          </a>
           <a href="https://reignlabs.io/about-us/">About Us</a>
           <a href="https://reignlabs.io/contact-us/">Contact Us</a>
           <a href="https://reignlabs.io/blog/">Blog</a>
@@ -83,7 +85,9 @@ const Navbar = () => {
         <>
           <div className="nav-mob-2">
             <a href="https://reignlabs.io/">Home</a>
-            <a href="https://reignlabs.io/founder/">Founders Pass</a>
+            <a className="sel-a" href="https://reignlabs.io/founder/">
+              Founders Pass
+            </a>
             <a href="https://reignlabs.io/about-us/">About Us</a>
             <a href="https://reignlabs.io/contact-us/">Contact Us</a>
             <a href="https://reignlabs.io/blog/">Blog</a>

@@ -10,12 +10,13 @@ import { Web3Modal } from "@web3modal/react";
 
 const config = {
   projectId: "6ea112bb251f26bee4cf7a5764cd3c63",
-  theme: "dark",
+  theme: "light",
   accentColor: "default",
+
   ethereum: {
     appName: "web3Modal",
     autoConnect: true,
-    chains: [chains.mainnet, chains.polygon, chains.fantom],
+    chains: [chains.polygonMumbai],
   },
 };
 

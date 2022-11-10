@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "./RoyalityPass.css";
 import { ToastContainer } from "react-toastify";
+import MintOptions from "./../mintoptions";
 
-import o1 from "./../../assets/1.mp4";
-import o2 from "./../../assets/2.mp4";
-import o3 from "./../../assets/3.mp4";
+import o1 from "./../../assets/1.webm";
+import o2 from "./../../assets/2.webm";
+import o3 from "./../../assets/3.webm";
 import star from "./../../assets/icon-1.png";
 import banner from "./../../assets/banner.webp";
 
@@ -26,18 +27,48 @@ const RoyalityPass = ({ passContract }) => {
       price: 0,
       name: "Basic",
       sale: 4,
+      charac: [
+        "SMART CONTRACT CREATION",
+        "LANDING PAGE FOR MINTING",
+        "MINT BUTTON VIA SDK",
+        "AIRDROPS",
+        "LDR (LATER DATE REVEAL)",
+        "REVENUE SPLIT",
+        "PAUSABLE CONTRACTS",
+        "DISCORD SUPPORT (5 DAYS)",
+      ],
     },
     {
       text: "This is a perfect pass for someone who needs a little of everything. This pass gets your contract done, NFT generation up to 5k, staking & more!",
       price: 0,
       name: "Elite",
       sale: 2,
+      charac: [
+        "EVERYTHING IN THE BASIC PASS",
+        "STAKING",
+        "STAKE/UNSTAKE BUTTON VIA SDK",
+        "SOUL BOUND NFTS",
+        "DYNAMIC MINT PRICE",
+        "NFT GENERATION (5K MAX)",
+        "MULTIPLE CURRENCY MINTING",
+        "DISCORD SUPPORT (15 DAYS)",
+      ],
     },
     {
       text: "The Pro Pass is perfect for a creator who needs a custom solution. You need it all done and don’t want to worry. We have you covered!",
       price: 0,
       name: "Pro",
       sale: 0,
+      charac: [
+        "EVERYTHING IN THE BASIC & ELITE PASSES",
+        "UNIQUE SMART CONTRACTS",
+        "COMMUNITY TOKEN CREATION",
+        "FULL STACK SOLUTIONS",
+        "NFT GENERATION (10K MAX)",
+        "DISCORD CREATION",
+        "SOCIAL MEDIA ACCOUNT CREATION",
+        "DISCORD SUPPORT (30 DAYS)",
+      ],
     },
   ]);
 
@@ -116,10 +147,13 @@ const RoyalityPass = ({ passContract }) => {
           <div className="t">
             <div></div>
           </div>
-          <p className="join">JOIN R3IGNLABS</p>
+          <div className="tog">
+            <div className="line"></div>
+            <p className="join">JOIN R3IGNLABS</p>
+          </div>
           <p className="top-font">R3IGNLABS founders pass!</p>
           <img className="star" src={star} alt="star icon" />
-          <p style={{ width: "60vw" }} className="sub-font">
+          <p className="sub-f">
             With the Founders Pass, you'll have access to our entire development
             team plus additional exclusive benefits. Please contact us before
             minting a pass. Once you mint a pass, we will show you how to
@@ -129,7 +163,7 @@ const RoyalityPass = ({ passContract }) => {
         <div>
           <img className="banner" src={banner} alt="banner" />
         </div>
-        <div className="cards">
+        {/* <div className="cards">
           {passText.map((curr, i) => {
             return (
               <div key={i} className="Royality-card">
@@ -141,11 +175,23 @@ const RoyalityPass = ({ passContract }) => {
                   muted
                 ></video>
                 <p className="sub-font xx">{passText[i].text}</p>
-                <p className="top-font">{passText[i].price} ETH</p>
                 <div className="sale-box">
                   <div>{`${passText[i].name} FOUNDERS PASS`}</div>
                   <div>{`${passText[i].sale}% SALES FEES`}</div>
                 </div>
+                <div className="check">
+                  {passText[i].charac.map((curr, l) => {
+                    return (
+                      <div key={l}>
+                        <label className="cont-8">
+                          <input type="checkbox" />
+                          <span className="checkmark">{` ${curr}`}</span>
+                        </label>
+                      </div>
+                    );
+                  })}
+                </div>
+                <p className="tp">{passText[i].price} ETH</p>
                 <button
                   onClick={() => {
                     mintPass(i);
@@ -159,6 +205,24 @@ const RoyalityPass = ({ passContract }) => {
               </div>
             );
           })}
+        </div> */}
+        <div className="w-[100%] min-[1600px]:max-w-[79vw] min-w-0">
+          <div className=" flex flex-wrap mt-28">
+            {passText.map((curr, i) => {
+              return (
+                <div key={i}>
+                  <MintOptions
+                    mintPass={mintPass}
+                    src={media[i]}
+                    description={curr.text}
+                    title={curr.name}
+                    features={curr.charac}
+                    price={curr.price}
+                  />
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
       <div className="questions">

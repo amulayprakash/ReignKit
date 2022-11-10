@@ -11,10 +11,14 @@
   position: absolute;
   transform: translate(55vw, -90px);
 }
-
+.tp {
+  font-family: Bebas Neue, sans-serif;
+  color: white;
+  font-size: 3vw;
+  margin: 0;
+  padding: 1vw 5vh;
+}
 .join {
-  margin-top: 70px;
-  padding: 0vw 5vh;
   color: rgb(0, 149, 255);
   font-size: large;
 }
@@ -32,7 +36,27 @@
   font-weight: bolder;
   padding: 1vw 5vh;
   margin: 0;
+}
+.sub-f {
+  color: rgb(200, 197, 208);
+  font-size: 1vw;
+  font-family: Montserrat, sans-serif;
+  font-weight: bolder;
+  padding: 1vw 5vh;
+  margin: 0;
   height: 30%;
+  width: 60vw;
+}
+.tog {
+  display: flex;
+  align-items: center;
+  padding: 1vw 5vh;
+  margin-top: 10vh;
+}
+.line {
+  background-color: rgb(0, 149, 255);
+  width: 5vw;
+  height: 1px;
 }
 .pass-vid {
   width: 90%;
@@ -50,7 +74,8 @@
   background-color: rgb(21, 44, 74);
   padding: 3vw;
   border: solid white 1px;
-  width: 20%;
+  width: 25%;
+  min-height: 600px;
 }
 .btn {
   background: #a234d9;
@@ -109,6 +134,23 @@
   font-size: 1.5vw;
   font-family: Montserrat, sans-serif;
   font-weight: bolder;
+  height: 80px;
+}
+.check {
+  display: flex;
+  flex-direction: column;
+}
+.cont-8 {
+  display: flex;
+  height: 50px;
+  justify-content: flex-start;
+  align-items: center;
+  color: rgb(201, 190, 190);
+  border-bottom: 1px solid grey;
+}
+
+.cont-8 input:checked {
+  background-color: #2196f3;
 }
 
 @media screen and (max-width: 700px) {
@@ -145,24 +187,50 @@
 }
 
 @media screen and (max-width: 500px) {
+  .questions {
+    width: auto;
+    margin: auto;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  .questions h1 {
+    font-size: 9vw;
+  }
+  .questions p {
+    font-size: 5vw;
+  }
+  .tog {
+    margin: auto;
+    justify-content: center;
+    margin-top: 18vh;
+  }
+  .top-font {
+    font-size: 8vw;
+  }
+  .sub-f {
+    font-size: 5vw;
+    font-family: Montserrat, sans-serif;
+    font-weight: bolder;
+    padding: 1vw 5vh;
+    height: 30%;
+    width: 90%;
+  }
+  .xx {
+    font-size: 5vw;
+    width: auto;
+  }
   .bg-01 {
     background-color: rgb(14, 25, 39);
     padding-bottom: 10vh;
   }
-  .sub-font {
-    margin: auto;
-    width: 90vw;
-  }
+
   .star {
     transform: translate(20vw, -130px);
     width: 40px;
   }
   .sale-box {
     flex-direction: column;
-    font-size: 3vw;
-  }
-  .xx {
-    width: auto;
-    font-size: 3vw;
+    font-size: 5vw;
+    line-height: 30px;
   }
 }

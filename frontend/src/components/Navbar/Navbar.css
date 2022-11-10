@@ -24,9 +24,13 @@
   text-decoration: none;
   font-family: Montserrat, sans-serif;
   font-weight: bolder;
+  width: -webkit-fill-available;
+  text-align: center;
 }
 .nav2 a:hover {
   color: rgb(0, 149, 255);
+  border-bottom: 5px solid rgb(0, 149, 255);
+  padding: 32px 0 32px 0;
 }
 
 .nav3 {
@@ -106,11 +110,19 @@
   font-weight: bolder;
   padding: 20px;
   border-bottom: solid 1px gray;
-  width: 93%;
+  width: -webkit-fill-available;
   text-align: center;
 }
 .nav-mob-2 a:hover {
   color: rgb(0, 149, 255);
+  border-bottom: 5px solid rgb(0, 149, 255);
+  padding: 32px 0 32px 0;
+}
+
+.sel-a {
+  color: rgb(0, 149, 255) !important;
+  border-bottom: 5px solid rgb(0, 149, 255);
+  padding: 32px 0 32px 0;
 }
 
 @media screen and (max-width: 800px) {
