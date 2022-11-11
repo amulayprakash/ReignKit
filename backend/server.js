@@ -10,6 +10,7 @@ const path = require("path");
 // ---------------------------------
 const httpError = require("./models/http-error");
 const userRoutes = require("./routes/user-routes");
+const passRoutes = require("./routes/pass-route");
 
 // middlewares
 // ---------------------------------
@@ -34,6 +35,7 @@ app.get("/", (req, res) => {
   res.json({ status: "ok", txt: "REIGN KIT BACKEND" });
 });
 app.use("/api/users", userRoutes);
+app.use("/api/pass", passRoutes);
 
 app.use((req, res, next) => {
   return next(new httpError("Could not find the route"));
