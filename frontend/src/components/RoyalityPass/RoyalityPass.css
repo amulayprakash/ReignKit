@@ -16,7 +16,7 @@
   color: white;
   font-size: 3vw;
   margin: 0;
-  padding: 1vw 5vh;
+  padding: 1vw 5vw;
 }
 .join {
   color: rgb(0, 149, 255);
@@ -27,14 +27,14 @@
   color: white;
   font-size: 5vw;
   margin: 0;
-  padding: 1vw 5vh;
+  padding: 1vw 5vw;
 }
 .sub-font {
   color: rgb(157, 156, 160);
   font-size: 1.5vw;
   font-family: Montserrat, sans-serif;
   font-weight: bolder;
-  padding: 1vw 5vh;
+  padding: 1vw 5vw;
   margin: 0;
 }
 .sub-f {
@@ -42,7 +42,7 @@
   font-size: 1vw;
   font-family: Montserrat, sans-serif;
   font-weight: bolder;
-  padding: 1vw 5vh;
+  padding: 1vw 5vw;
   margin: 0;
   height: 30%;
   width: 60vw;
@@ -50,7 +50,7 @@
 .tog {
   display: flex;
   align-items: center;
-  padding: 1vw 5vh;
+  padding: 1vw 5vw;
   margin-top: 10vh;
 }
 .line {
@@ -96,7 +96,7 @@
 .banner {
   width: 100%;
   margin: 2vh 0 2vh 0;
-  padding: 20px;
+  padding: 1vw 5vw;
 }
 
 .questions {

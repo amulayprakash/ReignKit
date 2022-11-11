@@ -160,8 +160,8 @@ const RoyalityPass = ({ passContract }) => {
           <img className="banner" src={banner} alt="banner" />
         </div>
 
-        <div className="w-[100%] min-[1600px]:max-w-[79vw] min-w-0">
-          <div className=" flex flex-wrap mt-28">
+        <div className="m-auto w-[100%] min-[1600px]:max-w-[79vw] min-w-0">
+          <div className="justify-center flex flex-wrap mt-28 mb-28">
             {passText.map((curr, i) => {
               return (
                 <div key={i}>

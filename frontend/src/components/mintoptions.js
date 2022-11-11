@@ -19,7 +19,7 @@ function MintOptions({
   disable,
 }) {
   return (
-    <div className="x-1 border-2 border-solid  w-[380px] min-[1600px]:w-[320px] m-5   flex-grow  bg-[#152C4A]">
+    <div className="x-1 border-2 border-solid  w-[380px] min-[1600px]:w-[400px] m-5   flex-grow  bg-[#152C4A]">
       <video
         height="100px"
         width="400px"
