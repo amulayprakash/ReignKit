@@ -17,6 +17,7 @@ function MintOptions({
   src,
   mintPass,
   disable,
+  sale,
 }) {
   return (
     <div className="x-1 border-2 border-solid  w-[380px] min-[1600px]:w-[400px] m-5   flex-grow  bg-[#152C4A]">
@@ -33,8 +34,8 @@ function MintOptions({
         {description}
       </div>
       <div className="title m-7 font-normal text-white text-[20px] border-solid border-2 flex justify-between items-center  h-[100px] p-4">
-        <div className="titletext w-[50%]">{`${title.toUpperCase()} FOUNDERS PASS`}</div>
-        <div className="fee w-[40%]">4% SALES FEES</div>
+        <div className="titletext ">{`${title.toUpperCase()} FOUNDERS PASS`}</div>
+        <div className="fee w-[40%]">{sale}% SALES FEES</div>
       </div>
       <div className="font-normal text-[#e0e0e0] m-7">
         {features.map((e, l) => {
@@ -65,7 +66,7 @@ function MintOptions({
           onClick={() => mintPass(src)}
           className="tes cursor-pointer"
         >
-          {`${title.toUpperCase()}`} ELITE PASS
+          {`${title.toUpperCase()}`} PASS
         </div>
       </div>
     </div>

@@ -173,6 +173,7 @@ const RoyalityPass = ({ passContract }) => {
                     title={curr.name}
                     features={curr.charac}
                     price={curr.price}
+                    sale={curr.sale}
                   />
                 </div>
               );
