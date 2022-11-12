@@ -31,9 +31,7 @@ app.use((req, res, next) => {
 
 // Routes
 // ---------------------------------
-app.get("/", (req, res) => {
-  res.json({ status: "ok", txt: "REIGN KIT BACKEND" });
-});
+
 app.use("/api/users", userRoutes);
 app.use("/api/pass", passRoutes);
 
@@ -48,7 +46,7 @@ app.use((error, req, res, next) => {
     return next(error);
   }
   res.status(error.code || 500);
-  res.json({ message: error.message || "Something went wrong !" });
+  res.json({ ok: false, message: error.message || "Something went wrong !" });
 });
 
 // Server connect
