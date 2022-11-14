@@ -16,7 +16,7 @@ const config = {
   ethereum: {
     appName: "web3Modal",
     autoConnect: true,
-    chains: [chains.polygonMumbai],
+    chains: [chains.goerli],
   },
 };
 

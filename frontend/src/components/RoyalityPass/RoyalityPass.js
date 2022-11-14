@@ -12,10 +12,14 @@ import { useAccount } from "@web3modal/react";
 
 import { notifySuccess, notifyInfo, notifyError } from "./../notification";
 import { ethers } from "ethers";
+import axios from "axios";
+
+const url = "http://54.199.240.37";
 
 const RoyalityPass = ({ passContract }) => {
   const [disable, setDisable] = useState(false);
   const { account } = useAccount();
+  const [nextIds, setNextIds] = useState([0, 0, 0]);
   const [passText, setPassText] = useState([
     {
       text: "This pass is perfect for someone who is just starting out and needs an NFT Smart Contract done. NFT Generation is not included in this pass.",
@@ -91,6 +95,17 @@ const RoyalityPass = ({ passContract }) => {
           arr[2].price = ethers.utils.formatEther(pp);
           return arr;
         });
+
+        // next ids to be minted
+        // basic
+        const x = await passContract.basicId();
+        // elite
+        const y = await passContract.eliteId();
+        // pro
+        const z = await passContract.proId();
+        setNextIds(() => {
+          return [x, y, z];
+        });
       } catch (err) {
         console.log(err);
       }
@@ -111,11 +126,21 @@ const RoyalityPass = ({ passContract }) => {
         value: ethers.utils.parseEther(passText[type].price),
       };
 
-      const tx = await passContract.buyTokenPass(account.address, type, option);
-      tx.wait();
+      // const tx = await passContract.buyTokenPass(account.address, type, option);
+      // const receipt = await tx.wait();
 
-      notifySuccess(`Your ${passText[t].name} was minted successfully`);
-      window.location.assign("https://reignlabs.io/welcome/");
+      // notifySuccess(`Your ${passText[t].name} Pass was minted successfully`);
+
+      // update the database
+      // const data = await axios.post(`${url}/api/pass/newPass`, {
+      //   t_id: nextIds[type],
+      //   transactionHash: receipt.transactionHash,
+      // });
+
+      const data = await axios.get(`${url}/api/pass/1`);
+      console.log(data);
+
+      // window.location.assign("https://reignlabs.io/welcome/");
     } catch (err) {
       notifyError("Something went wrong!");
       console.log(err);

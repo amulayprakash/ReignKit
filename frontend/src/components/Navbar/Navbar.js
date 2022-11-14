@@ -17,7 +17,6 @@ const Navbar = () => {
   const { width } = useWindowDimensions();
   const [change, setChange] = useState(false);
   const z = useConnectModal();
-  console.log(z, account);
 
   useEffect(() => {
     if (
@@ -27,7 +26,6 @@ const Navbar = () => {
     ) {
       if (!account.isConnecting) {
         open();
-        switchNetwork({ chainId: final.network.chainId });
       }
     }
   }, [account.isConnected, account.isConnecting]);
