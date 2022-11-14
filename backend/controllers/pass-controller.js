@@ -97,7 +97,8 @@ exports.returnJson = async (req, res, next) => {
 
       const status_indx = Number(existingPass.active);
       const indx = getIndex(id);
-      let return_data = data[indx];
+      let return_data = { ...data[indx] };
+      return_data.name = `${return_data.name} #${id}`;
       return_data.attributes[2].value = status_string[status_indx];
 
       return res.status(200).json(return_data);
