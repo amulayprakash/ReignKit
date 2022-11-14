@@ -126,21 +126,18 @@ const RoyalityPass = ({ passContract }) => {
         value: ethers.utils.parseEther(passText[type].price),
       };
 
-      // const tx = await passContract.buyTokenPass(account.address, type, option);
-      // const receipt = await tx.wait();
+      const tx = await passContract.buyTokenPass(account.address, type, option);
+      const receipt = await tx.wait();
 
-      // notifySuccess(`Your ${passText[t].name} Pass was minted successfully`);
+      notifySuccess(`Your ${passText[t].name} Pass was minted successfully`);
 
       // update the database
-      // const data = await axios.post(`${url}/api/pass/newPass`, {
-      //   t_id: nextIds[type],
-      //   transactionHash: receipt.transactionHash,
-      // });
+      const data = await axios.post(`${url}/api/pass/newPass`, {
+        t_id: nextIds[type],
+        transactionHash: receipt.transactionHash,
+      });
 
-      const data = await axios.get(`${url}/api/pass/1`);
-      console.log(data);
-
-      // window.location.assign("https://reignlabs.io/welcome/");
+      window.location.assign("https://reignlabs.io/welcome/");
     } catch (err) {
       notifyError("Something went wrong!");
       console.log(err);
