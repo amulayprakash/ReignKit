@@ -27,8 +27,8 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
         };
         const types = {
           Struct: [
-            { name: "id", type: "uint256" },
-            { name: "name", type: "string" },
+            { name: "type", type: "uint256" },
+            { name: "to", type: "string" },
           ],
         };
         console.log(obj, domain, types);
