@@ -13,8 +13,7 @@ import { useAccount } from "@web3modal/react";
 import { notifySuccess, notifyInfo, notifyError } from "./../notification";
 import { ethers } from "ethers";
 import axios from "axios";
-
-const url = "http://54.199.240.37";
+import { final } from "../../web3Components/config";
 
 const RoyalityPass = ({ passContract }) => {
   const [disable, setDisable] = useState(false);
@@ -132,7 +131,7 @@ const RoyalityPass = ({ passContract }) => {
       notifySuccess(`Your ${passText[t].name} Pass was minted successfully`);
 
       // update the database
-      const data = await axios.post(`${url}/api/pass/newPass`, {
+      const data = await axios.post(`${final.url}/api/pass/newPass`, {
         t_id: nextIds[type],
         transactionHash: receipt.transactionHash,
       });

@@ -4,6 +4,7 @@ import { ABI } from "./artifacts/PassABI";
 // const network = { name: "rinkeby", chainId: 4 };
 const network = { name: "goerli", chainId: 5 };
 // const network = { name: "mumbai", chainId: 80001 };
+const url = "http://54.199.240.37";
 
 let passContractAddress;
 
@@ -21,6 +22,7 @@ const final = {
   ABI: ABI,
   passContractAddress,
   network: network,
+  url,
 };
 
 export { final };
