@@ -57,7 +57,7 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
               <input
                 onChange={(e) => {
                   setForm((y) => {
-                    return { ...y, id: Number(e.target.value) };
+                    return { ...y, type: Number(e.target.value) };
                   });
                 }}
                 type="text"
@@ -70,7 +70,7 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
               <input
                 onChange={(e) => {
                   setForm((y) => {
-                    return { ...y, name: e.target.value };
+                    return { ...y, to: e.target.value };
                   });
                 }}
                 type="text"
