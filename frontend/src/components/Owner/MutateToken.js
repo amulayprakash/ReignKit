@@ -3,17 +3,20 @@ import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import "./Owner.css";
 import { final } from "../../web3Components/config";
+import { notifySuccess, notifyInfo, notifyError } from "./../notification";
+import { ToastContainer } from "react-toastify";
 
 const MutateToken = () => {
   const [form, setForm] = useState({
     tokenId: 0,
     Status: 0,
   });
-  const [err, setErr] = useState(null);
+  const [, setErr] = useState(null);
 
   console.log(form);
 
   const submit = async () => {
+    notifyInfo("Please wait for confirmation");
     setErr(() => "loading");
     try {
       const data = await axios.patch(`${final.url}/api/pass/mutatePass`, {
@@ -24,26 +27,37 @@ const MutateToken = () => {
 
       console.log(data);
       if (data.data.ok === false) {
-        setErr(() => data.data.message);
+        notifyError(data?.data?.message || "Something went wrong");
       } else {
-        setErr(
-          () => `token ID : ${data.data.pass.token_id} status was updated`
+        notifySuccess(
+          `token ID : ${data.data.pass.token_id} status was updated`
         );
       }
     } catch (err) {
-      console.log(err);
-      setErr(err?.response?.data?.message || "Something Went Wrong!!!");
+      notifyError(err?.response?.data?.message || "Something Went Wrong!!!");
     }
   };
 
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="dark"
+        pauseOnHover
+      />
       <div className="bg-02">
         <Navbar />
         <div className="form">
           <div>
             <label>
-              Token Id:
+              Token Id :
               <input
                 onChange={(e) => {
                   setForm((y) => {
@@ -74,9 +88,6 @@ const MutateToken = () => {
             <button className="btn" onClick={() => submit()}>
               Save
             </button>
-          </div>
-          <div className="err">
-            <p>{err}</p>
           </div>
         </div>
       </div>

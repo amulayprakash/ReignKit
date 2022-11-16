@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { final } from "../../web3Components/config";
 import Navbar from "../Navbar/Navbar";
+import { ToastContainer } from "react-toastify";
 
 import "./Owner.css";
 
@@ -42,31 +43,47 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
         setErr(() => "Something Went Wrong!!!");
       }
     } catch (err) {
+      console.log(err);
       setErr(err?.message || "Something went Wrong");
     }
   };
 
   return (
     <div>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="dark"
+        pauseOnHover
+      />
       <div className="bg-03">
         <Navbar></Navbar>
         <div className="form">
           <div>
-            <label>
+            <label className="select">
               Type :
-              <input
+              <select
                 onChange={(e) => {
-                  setForm((y) => {
-                    return { ...y, type: Number(e.target.value) };
+                  setForm((x) => {
+                    return { ...x, type: Number(e.target.value) };
                   });
                 }}
-                type="text"
-              />
+              >
+                <option value="0">Basic Pass</option>
+                <option value="1">Elite Pass</option>
+                <option value="2">Pro Pass</option>
+              </select>
             </label>
           </div>
           <div>
             <label>
-              To :
+              Address To :
               <input
                 onChange={(e) => {
                   setForm((y) => {
@@ -82,9 +99,6 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
               {" "}
               Generate{" "}
             </button>
-          </div>
-          <div className="err">
-            <p>{err}</p>
           </div>
           <div
             onClick={() => {

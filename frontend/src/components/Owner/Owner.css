@@ -3,11 +3,13 @@
   height: 100vh;
   padding-bottom: 10vh;
   padding-top: 5vh;
+  font-family: Bebas Neue, sans-serif;
 }
 .bg-03 {
   background-color: rgb(14, 25, 39);
   height: 100vh;
   padding-bottom: 10vh;
+  font-family: Bebas Neue, sans-serif;
   padding-top: 5vh;
 }
 .err {
@@ -36,22 +38,19 @@
 }
 
 .form input {
+  font-family: sans-serif;
   padding: 6px;
   font-size: 17px;
   border-width: 2px;
-  border-color: #1000ff;
-  background-color: #d9d1e5;
   color: #000000;
   border-style: ridge;
-  border-radius: 11px;
-  box-shadow: 0px 0px 0px rgba(66, 66, 66, 0);
-  text-shadow: -50px 0px 0px rgba(66, 66, 66, 0);
+  border-radius: 5px;
   margin: 10px;
 }
 
 .form label {
-  color: #d9d1e5;
-  font-size: 20px;
+  color: #b3adad;
+  font-size: 25px;
   font-weight: bolder;
 }
 
@@ -60,17 +59,12 @@
   width: 100%;
 }
 .select select {
-  font-family: "Arial";
   cursor: pointer;
   padding: 11px 14px;
   outline: 0;
   border: 0px solid #1307ee;
-  border-radius: 100px;
-  background: #c7c1d4;
+  border-radius: 5px;
   color: #000000;
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   margin: 30px;
 }
 
