@@ -10,7 +10,7 @@ const SIGNING_DOMAIN_VERSION = "1";
 
 const Signature = ({ passContract, chain_id, address, signer }) => {
   const [err, setErr] = useState("");
-  const [form, setForm] = useState({ type: "", to: "" });
+  const [form, setForm] = useState({ type: 0, to: "" });
   const [succ, setSucc] = useState("");
   const [c, setC] = useState(false);
 
