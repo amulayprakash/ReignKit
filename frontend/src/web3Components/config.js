@@ -13,7 +13,7 @@ if (network.name === "rinkeby") {
 } else if (network.name === "homestead") {
   passContractAddress = "";
 } else if (network.name === "goerli") {
-  passContractAddress = "0x92C75C675984606969eA801EC9b9a13e283E80C3";
+  passContractAddress = "0x9312B1b2436208bb1227DD48a7824cCe1F3C67a5";
 } else if (network.name === "mumbai") {
   passContractAddress = "0x8d55B7E009A0E9c2645F33157CF521BA33cADebF";
 }

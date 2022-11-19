@@ -52,8 +52,17 @@
   color: #b3adad;
   font-size: 25px;
   font-weight: bolder;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.form div {
+  width: 400px;
 }
 
+.form button {
+  margin-top: 30px;
+}
 .select {
   margin-bottom: 15px;
   width: 100%;

@@ -2,49 +2,93 @@ import React, { useEffect, useState } from "react";
 import { final } from "../../web3Components/config";
 import Navbar from "../Navbar/Navbar";
 import { ToastContainer } from "react-toastify";
+import { useSignTypedData } from "@web3modal/react";
 
 import "./Owner.css";
-
-const SIGNING_DOMAIN_NAME = "REIGNLABS";
-const SIGNING_DOMAIN_VERSION = "1";
-
+import { notifyError } from "../notification";
+import { ethers } from "ethers";
 const Signature = ({ passContract, chain_id, address, signer }) => {
   const [err, setErr] = useState("");
   const [form, setForm] = useState({ type: 0, to: "" });
   const [succ, setSucc] = useState("");
+  const [id, setId] = useState("");
   const [c, setC] = useState(false);
+  const [k, setK] = useState(false);
 
   useEffect(() => {}, []);
 
   const createSignature = async () => {
     try {
-      if (final.passContractAddress && chain_id && signer) {
-        const obj = { type: form.type, to: form.to };
-        const domain = {
-          name: SIGNING_DOMAIN_NAME,
-          version: SIGNING_DOMAIN_VERSION,
-          verifyingContract: final.passContractAddress,
-          chainId: chain_id,
-        };
-        const types = {
-          Struct: [
-            { name: "type", type: "uint256" },
-            { name: "to", type: "string" },
-          ],
-        };
-        console.log(obj, domain, types);
-        const signature = await signer._signTypedData(domain, types, obj);
-        console.log(signature);
-        setSucc(() => signature);
-        setForm((x) => {
-          return { ...x, signature };
-        });
-      } else {
-        setErr(() => "Something Went Wrong!!!");
+      const SIGNING_DOMAIN_NAME = "REIGNLABS";
+      const SIGNING_DOMAIN_VERSION = "1";
+      class SignHelper {
+        constructor(contractAddress, chainId, signer) {
+          this.contractAddress = contractAddress;
+          this.chainId = chainId;
+          this.signer = signer;
+        }
+        async createSignature(id, _type, _address) {
+          const obj = { id, _type, _address };
+          // console.log(obj);
+          const domain = await this._signingDomain();
+          const types = {
+            Struct: [
+              { name: "id", type: "uint256" },
+              { name: "_type", type: "uint256" },
+              { name: "_address", type: "address" },
+            ],
+          };
+          console.log(domain, types, obj);
+          const signature = await this.signer._signTypedData(
+            domain,
+            types,
+            obj
+          );
+
+          return { ...obj, signature };
+        }
+        async _signingDomain() {
+          if (this._domain != null) {
+            return this._domain;
+          }
+          const chainId = await this.chainId;
+          this._domain = {
+            name: SIGNING_DOMAIN_NAME,
+            version: SIGNING_DOMAIN_VERSION,
+            verifyingContract: this.contractAddress,
+            chainId,
+          };
+          return this._domain;
+        }
+        static async getSign(
+          contractAddress,
+          chainId,
+          uniqueId,
+          _type,
+          address
+        ) {
+          var lm = new SignHelper(contractAddress, chainId, signer);
+          // console.log(lm);
+          var v = await lm.createSignature(uniqueId, _type, address);
+          return v;
+        }
       }
+
+      const new_id = Number(new Date().valueOf());
+      const voucher = await SignHelper.getSign(
+        final.passContractAddress,
+        chain_id,
+        new_id,
+        form.type,
+        form.to
+      );
+
+      console.log(voucher);
+      setId(() => new_id);
+      setSucc(() => voucher.signature);
     } catch (err) {
       console.log(err);
-      setErr(err?.message || "Something went Wrong");
+      notifyError(err?.message || "Something went Wrong");
     }
   };
 
@@ -94,7 +138,7 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
               />
             </label>
           </div>
-          <div>
+          <div style={{ textAlign: "center" }}>
             <button className="btn" onClick={createSignature}>
               {" "}
               Generate{" "}
@@ -106,8 +150,17 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
               setC(true);
             }}
             className="succ"
-          >{`${succ.slice(0, 15)}....${succ.slice(-15)} ${
+          >{`Signature: ${succ.slice(0, 15)}....${succ.slice(-15)} ${
             c ? "(COPIED)" : "(CLICK TO COPY)"
+          }`}</div>
+          <div
+            onClick={() => {
+              navigator.clipboard.writeText(id);
+              setK(true);
+            }}
+            className="succ"
+          >{`Unique Id: ${id ? id : "-"} ${
+            k ? "(COPIED)" : "(CLICK TO COPY)"
           }`}</div>
         </div>
       </div>

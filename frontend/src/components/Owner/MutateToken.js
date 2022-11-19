@@ -56,19 +56,6 @@ const MutateToken = () => {
         <Navbar />
         <div className="form">
           <div>
-            <label>
-              Token Id :
-              <input
-                onChange={(e) => {
-                  setForm((y) => {
-                    return { ...y, tokenId: Number(e.target.value) };
-                  });
-                }}
-                type="text"
-              />
-            </label>
-          </div>
-          <div>
             <label className="select">
               Status :
               <select
@@ -83,8 +70,21 @@ const MutateToken = () => {
                 <option value="2">Expired</option>
               </select>
             </label>
-          </div>
+          </div>{" "}
           <div>
+            <label>
+              Token Id :
+              <input
+                onChange={(e) => {
+                  setForm((y) => {
+                    return { ...y, tokenId: Number(e.target.value) };
+                  });
+                }}
+                type="text"
+              />
+            </label>
+          </div>
+          <div style={{ textAlign: "center" }}>
             <button className="btn" onClick={() => submit()}>
               Save
             </button>

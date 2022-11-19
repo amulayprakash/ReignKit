@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import RoyalityPass from "./components/RoyalityPass/RoyalityPass";
 import MutateToken from "./components/Owner/MutateToken";
 import Signature from "./components/Owner/Signature";
+import Claim from "./components/Claim/Claim";
 import { Route, Switch } from "react-router-dom";
 import { final } from "./web3Components/config";
 import "./App.css";
@@ -46,6 +47,18 @@ function App() {
         path="/owner/sign"
         component={() => (
           <Signature
+            passContract={passContract}
+            chain_id={x?.network?.chain?.id}
+            address={account?.address}
+            signer={data}
+          />
+        )}
+      />
+      <Route
+        exact
+        path="/pass/claim"
+        component={() => (
+          <Claim
             passContract={passContract}
             chain_id={x?.network?.chain?.id}
             address={account?.address}
