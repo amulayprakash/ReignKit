@@ -15,7 +15,15 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
   const [c, setC] = useState(false);
   const [k, setK] = useState(false);
 
-  useEffect(() => {}, []);
+  const clip = async (x) => {
+    if (x === 1) {
+      await navigator.clipboard.writeText(succ);
+      setC(true);
+    } else if (x === 2) {
+      await navigator.clipboard.writeText(id);
+      setK(true);
+    }
+  };
 
   const createSignature = async () => {
     try {
@@ -146,22 +154,27 @@ const Signature = ({ passContract, chain_id, address, signer }) => {
           </div>
           <div
             onClick={() => {
-              navigator.clipboard.writeText(succ);
-              setC(true);
+              clip(1);
             }}
             className="succ"
-          >{`Signature: ${succ.slice(0, 15)}....${succ.slice(-15)} ${
+            style={{ width: "90vw" }}
+          >
+            {/* {`Signature: ${succ.slice(0, 15)}....${succ.slice(-15)} ${
             c ? "(COPIED)" : "(CLICK TO COPY)"
-          }`}</div>
+          }`} */}
+            {`Signature: ${succ}`}
+          </div>
           <div
             onClick={() => {
-              navigator.clipboard.writeText(id);
-              setK(true);
+              clip(2);
             }}
             className="succ"
-          >{`Unique Id: ${id ? id : "-"} ${
+          >
+            {/* {`Unique Id: ${id ? id : "-"} ${
             k ? "(COPIED)" : "(CLICK TO COPY)"
-          }`}</div>
+          }`} */}
+            {`id: ${id}`}
+          </div>
         </div>
       </div>
     </div>
